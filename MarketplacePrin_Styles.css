@@ -1,0 +1,92 @@
+body{
+    background-color:rgb(10, 44, 44);
+    text-align: center;
+    margin: 0;
+}
+
+
+/*CABECERA*/
+
+#cabecera .titulo-principal h2{
+    margin-top: 0;
+    background-color:lightcyan;
+}
+
+/*NAVEGACION*/
+
+#textoBuscador{
+    color: black;
+    font-weight: 700;
+}
+
+#navegacion{
+    
+    color: black;
+    background-color: white;
+    height: 2rem;
+    padding-top: 0.9rem;
+    text-align: center;
+}
+
+/*CANTIDAD DE ARTICULOS*/
+#cantArt{
+   color: aliceblue;
+   float: left;
+   margin-left: 2rem;
+   font-size: 1.2rem;
+}
+
+/*CONTENEDOR PRINCIPAL*/
+
+#contenedor-principal{
+    display: grid;
+    background: rgb(5, 18, 18);
+    height: 20rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;    
+    clear: left;
+    margin: 0;
+    width:  50%;
+    margin: auto;
+}
+
+.contenido-productos {
+    background-color: white;
+    border: 0.25rem solid rgb(174, 133, 79);
+    max-width:100%;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+img{
+    margin: 0;
+    object-fit: cover;
+    max-width: 10rem;
+    text-align: center;
+  }
+
+strong{
+    text-align: center;
+    display: block;
+  }
+
+/*SECCION OFERTA*/
+#oferta{
+    margin-top: 12rem;
+    margin-bottom: 0.2rem;
+    grid-column: 2;
+    color: yellow;
+    font-size: 1.2rem;
+    text-shadow: 0.2rem 0.2rem  black;
+}
+
+/*FOOTER*/
+#pie-de-pagina{
+    margin-top: 0.1rem;
+    text-align: center;
+    background-color:antiquewhite;
+}
+
+

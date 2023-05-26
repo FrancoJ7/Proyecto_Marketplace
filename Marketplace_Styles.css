@@ -1,0 +1,31 @@
+#grid-layout {
+    display: grid;
+    grid-template-areas: 'cabecera cabecera'
+                        'imagen descripcion'
+                        'comentarios comentarios';
+    grid-template-columns: 20% auto;
+    grid-template-rows: 10% auto auto;
+    height: 1000px;
+}
+
+img {
+    max-width: 100%;
+}
+
+#cabecera {
+    grid-area: cabecera;
+}
+
+#imagen-producto {
+    grid-area: imagen;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+#descripcion {
+    grid-area: descripcion;
+}
+
+#comentarios {
+    grid-area: comentarios;
+}

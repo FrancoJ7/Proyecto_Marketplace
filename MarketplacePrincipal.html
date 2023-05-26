@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <title>Ventas 2023</title>
+        <link rel="stylesheet" href="MarketplacePrin_Styles.css" type="text/css">
+        <script src="https://unpkg.com/vue@3.3.2/dist/vue.global.js"></script>
+        <script src="index.js" defer></script>
+    </head>
+
+    <body>
+
+      <div id="app">
+
+        <header>
+          <div id="cabecera">
+                  <div class="titulo-principal"><h2>{{ title }}</h2></div>
+          </div>
+        </header>
+
+          <div id="navegacion">
+          <nav>
+              <label id="textoBuscador">INGRESE LA NOTBOOK:
+              <input type="text" id="inputTexto" placeholder="Ingresar la notbook"> 
+              <button type="submit" onclick="buscar()">Buscar</button></label><br/>
+          </nav>
+        </div>
+
+          <main>
+
+            <p id="cantArt">Cantidad de articulos: 4 </p>
+
+            <div id="contenedor-principal">
+
+              <div v-for="producto in productos" class="contenido-productos">
+                <a href="Marketplace.html" target="_blank">
+                  <img :src="producto.image_url" >
+                  <strong>{{ producto.title }}</strong>
+                </a>
+              </div>
+        
+          </main>
+          <p id="oferta">PROMO MUNDIAL <br> ★★★</p>
+        <div id="pie-de-pagina">
+          <footer>
+              <p>©Copyright 2050 by nobody. All rights reversed.</p>
+          </footer>
+        </div>
+
+      </div>
+    </body>
+
+</html>
+
+<!-- OTRA FORMA DE HACERLO CON VUE
+  <div id="contenedor-principal">
+
+              <div class="contenido-productos">
+                <a href="Marketplace.html" target="_blank">
+                  <img :src="productos[0].image_url" >
+                  <strong>{{ productos[0].title }}</strong>
+                </a>
+              </div>
+
+              <div class="contenido-productos">
+                <a href="Marketplace.html" target="_blank">
+                  <img :src="productos[1].image_url">
+                  <strong>{{ productos[1].title }}</strong>
+                </a>
+              </div>
+
+              <div class="contenido-productos" target="_blank">
+                <a href="Marketplace.html">
+                  <img :src="productos[2].image_url">
+                  <strong>{{ productos[2].title }}</strong>
+                </a>
+              </div>
+
+              <div class="contenido-productos" target="_blank">
+                <a href="Marketplace.html">
+                  <img :src="productos[3].image_url">
+                  <strong>{{ productos[3].title }}</strong>
+                </a>
+              </div>
+            
+    -->

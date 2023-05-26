@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Teclado gamer Logitech Serie G G513</title>
+    <link href="Marketplace_Styles.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/vue@3.3.2/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="grid-layout">
+        <div id="cabecera">
+            <h1 id="titulo-producto">{{ title }}</h1>
+        </div>
+        <div id="imagen-producto">
+            <img :src="image_url" id="imagen">
+        </div>
+    
+        <div id="descripcion">
+            <p id="texto-descripcion">{{ description }}</p>
+    
+            <h2>Características</h2>
+            <h3>Tipo computadora:</h3>
+            <ul>
+                <li>Precio: {{ notebooksTypes[0].price }}</li>
+                <li>RAM: {{ notebooksTypes[0].ramAmount }} GB</li>
+            </ul>
+            <h3>Tipo computadora:</h3>
+            <ul>
+                <li>Precio: {{ notebooksTypes[1].price }}</li>
+                <li>RAM: {{ notebooksTypes[1].ramAmount }} GB</li>
+            </ul>
+        </div>
+    
+        <a :href="factory_url" id="link-fabricante" target="_blank"
+           rel="noopener noreferrer">Link sitio web fabricante</a>
+    
+        <div id="comentarios">
+            <h2>Comentarios</h2>
+            <div id="listado-comentarios">
+    
+            </div>
+    
+            <h2>¡Deja tu comentario!</h2>
+            <form>
+                <label>Comentario: <textarea id="texto-comentario" name="comentario"></textarea></label>
+    
+                <label>
+                    Calificación:
+                    <select id="puntaje-feedback">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </label>
+    
+                <input id="boton-enviar-comentario" type="submit" value="Enviar">
+            </form>
+        </div>
+    
+    </div>
+    </body>
+    </html>
