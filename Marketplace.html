@@ -3,63 +3,70 @@
 <head>
     <title>Teclado gamer Logitech Serie G G513</title>
     <link href="Marketplace_Styles.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
     <script src="https://unpkg.com/vue@3.3.2/dist/vue.global.js"></script>
 </head>
 
 <body>
+    
     <div id="grid-layout">
+
         <div id="cabecera">
             <h1 id="titulo-producto">{{ title }}</h1>
         </div>
+
         <div id="imagen-producto">
             <img :src="image_url" id="imagen">
         </div>
     
         <div id="descripcion">
-            <p id="texto-descripcion">{{ description }}</p>
-    
-            <h2>Características</h2>
-            <h3>Tipo computadora:</h3>
+
+            <img class="imagen-miniatura" v-for="imagen in imagenes" :src="imagen" @mouseover="cambiarImagen(imagen)">  
+            <!--EJ2 - 1)* Esto es para que se vayan mostrando las imagenes cuando paso por encima de ellas, para ello, recorro el array de imagenes, uso el @mouseover, cuando paso
+            por encima de ellas, llama a esa funcion y le paso dicha imagen sobre la que estoy posando como parametro, voy al JS-->
+
+            <h2>Precio: $ {{ notebooksTypes[notebookSeleccionada].price }}</h2> MINUTO 19:25
+                <!-- EJE3 - 4)* Despuesl JS,aqui lo que hago aca es notebooksTypes(aca tengo todos los tipos)[notebookSeleccionada](con esto le indico en que posicion 
+                esta el objeto que tiene la informacion que quiero saber).price(aca le indico que atributo de ese objeto quiero saber), EJ notebooksTypes[1].price -->
+
+            <p v-if="mostrarCarroDeCompras">Carro de compras: </p> <!-- Muestra el carro de compras si es !== 0, ver JS -->
+
             <ul>
-                <li>Precio: {{ notebooksTypes[0].price }}</li>
-                <li>RAM: {{ notebooksTypes[0].ramAmount }} GB</li>
+                <li v-for="(notebookComprada,indice) in notebooksCompradas" key="indice">{{notebookComprada.ramAmount}} : $ {{notebookComprada.price}}
+                    <button @click="eliminarCompra(indice)"> Eliminar </button> <!-- Utilizo el indice para saber en que posicion esta el tipo de notbook que quiero
+                                                                                 eliminar-->
+                </li>  
             </ul>
-            <h3>Tipo computadora:</h3>
-            <ul>
-                <li>Precio: {{ notebooksTypes[1].price }}</li>
-                <li>RAM: {{ notebooksTypes[1].ramAmount }} GB</li>
-            </ul>
+
+            <p>Total: {{ total }}</p> <!-- EJE4 - 5)* Muestro el total de los precios sumandos de los tipos de notbook que fui -->
+
+            <informacion-notbook 
+                :notebooks-Types="notebooksTypes" 
+                @computadora-comprada="computadoraComprada"
+                @notbook-seleccionada="manejarNotbookSeleccionada">
+            </informacion-notbook>
+        
         </div>
-    
+
         <a :href="factory_url" id="link-fabricante" target="_blank"
            rel="noopener noreferrer">Link sitio web fabricante</a>
-    
-        <div id="comentarios">
-            <h2>Comentarios</h2>
-            <div id="listado-comentarios">
-    
-            </div>
-    
-            <h2>¡Deja tu comentario!</h2>
-            <form>
-                <label>Comentario: <textarea id="texto-comentario" name="comentario"></textarea></label>
-    
-                <label>
-                    Calificación:
-                    <select id="puntaje-feedback">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </label>
-    
-                <input id="boton-enviar-comentario" type="submit" value="Enviar">
-            </form>
-        </div>
-    
-    </div>
-    </body>
-    </html>
+
+       <formulario-evaluacion></formulario-evaluacion>
+    </div>  
+
+        <script src="script.js"></script>
+        <script src="./Componentes/informacionNotbook.js"></script>
+        <script src="./Componentes/formularioComentario.js"></script>
+        <script>app.mount('#grid-layout')</script>
+     
+</body>
+</html>
+
+<!-- 
+EJE2 = VA CAMBIANDO EN EL DIV DE LAS IMAGENES, LA IMAGEN DE LA MINIATURA DONDE VOY POSANDO
+EJE3 = DEPENDIENDO DEL TIPO DE NOTBOOK QUE ELIJA, EN EL H2 SE ME VA A MOSTRAR SU VALOR, EN ESTE CASO, SOLO HAY 2 TIPOS, POR LO TANTO 2 PRECIOS
+EJE4 = EN UNA LISTA VA A IR MOSTRANDO LOS ATRIBUTOS DEL TIPO DE NOTBOOK QUE VOY AGREGANDO AL CARRO PARA COMPPRAR, ADEMAS DE IR SUMANDO SU PRECIO Y MOSTRANDOLO EN UN
+<p> COMO EL TOTAL EJ: - Computadora X: $100.000
+                      - Computadora Y: $125.000
+                      Total: $225.000
+ -->

@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(184, 203, 173);
+}
+
 #grid-layout {
     display: grid;
     grid-template-areas: 'cabecera cabecera'
@@ -12,6 +16,10 @@ img {
     max-width: 100%;
 }
 
+.imagen-miniatura{
+    max-width: 50px;
+    max-height: 50px;
+}
 #cabecera {
     grid-area: cabecera;
 }
@@ -28,4 +36,5 @@ img {
 
 #comentarios {
     grid-area: comentarios;
+    margin-top: 4px;
 }
