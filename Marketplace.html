@@ -25,7 +25,7 @@
             <!--EJ2 - 1)* Esto es para que se vayan mostrando las imagenes cuando paso por encima de ellas, para ello, recorro el array de imagenes, uso el @mouseover, cuando paso
             por encima de ellas, llama a esa funcion y le paso dicha imagen sobre la que estoy posando como parametro, voy al JS-->
 
-            <h2>Precio: $ {{ notebooksTypes[notebookSeleccionada].price }}</h2> MINUTO 19:25
+            <h2>Precio: $ {{ notebooksTypes[notebookSeleccionada].price }}</h2> <!-- MINUTO 19:25 -->
                 <!-- EJE3 - 4)* Despuesl JS,aqui lo que hago aca es notebooksTypes(aca tengo todos los tipos)[notebookSeleccionada](con esto le indico en que posicion 
                 esta el objeto que tiene la informacion que quiero saber).price(aca le indico que atributo de ese objeto quiero saber), EJ notebooksTypes[1].price -->
 
@@ -41,7 +41,7 @@
             <p>Total: {{ total }}</p> <!-- EJE4 - 5)* Muestro el total de los precios sumandos de los tipos de notbook que fui -->
 
             <informacion-notbook 
-                :notebooks-Types="notebooksTypes" 
+                :notebooks-types="notebooksTypes" 
                 @computadora-comprada="computadoraComprada"
                 @notbook-seleccionada="manejarNotbookSeleccionada">
             </informacion-notbook>

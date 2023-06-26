@@ -9,7 +9,7 @@ app.component('formulario-evaluacion',{
         {{evaluacion.comentario}} - {{evaluacion.puntaje}}/5</p>
     </div>
 
-    <h3>¡Deja tu comentario!</h2>
+    <h3>¡Deja tu comentario!</h3>
 
     <form @submit.prevent="agregarComentario">
         <label>Comentario: 

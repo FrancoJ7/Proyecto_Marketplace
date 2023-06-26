@@ -29,23 +29,22 @@ const app = Vue.createApp({
 
    methods: {
   
-    cambiarImagen(urlImagen){ //EJ2 - 1)* Cuando pasa el @mouseover, se le manda a esta funcion el la imagen por en la que esta posando, por lo que aca, dicha imagen que recibe
-      this.image_url = urlImagen;//Se le asigna a this.image_url que es atributo que muestra por defecto una imagen en el div de imagen-producto que va a ir cambiando
-                                //dependiendo de la imagen
+        cambiarImagen(urlImagen){ //EJ2 - 1)* Cuando pasa el @mouseover, se le manda a esta funcion el la imagen por en la que esta posando, por lo que aca, dicha imagen que recibe
+          this.image_url = urlImagen;//Se le asigna a this.image_url que es atributo que muestra por defecto una imagen en el div de imagen-producto que va a ir cambiando
+                                    //dependiendo de la imagen
+        },
+        eliminarCompra(indice){
+          this.notebooksCompradas = this.notebooksCompradas.filter((value, index) => index !== indice)
+        } //IMPORTANTE: ver que tambien se actualiza el precio cuando elimino, es decir, en la propiedad compuada, al eliminar ese tipo, se va a calcular nuevamente el valor
+          //total
+      ,
+      computadoraComprada(notebook){
+        this.notebooksCompradas.push(notebook)
+      },
+      manejarNotbookSeleccionada(indice){
+        this.notebookSeleccionada = indice
+      }
     },
-
-
-    eliminarCompra(indice){
-      this.notebooksCompradas = this.notebooksCompradas.filter((value, index) => index !== indice)
-    } //IMPORTANTE: ver que tambien se actualiza el precio cuando elimino, es decir, en la propiedad compuada, al eliminar ese tipo, se va a calcular nuevamente el valor
-      //total
-   },
-   computadoraComprada(notebook){
-    this.notebooksCompradas.push(notebook)
-   },
-   manejarNotbookSeleccionada(indice){
-    this.notebookSeleccionada = indice
-   },
 
    computed: {
 

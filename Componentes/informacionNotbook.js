@@ -1,10 +1,11 @@
 app.component('informacion-notbook',{
-    
+
     template:
     /*html*/ 
     
-    `<p id="texto-descripcion">{{ description }}</p>
-    <h2>Caracteristicas</h2>
+    `<div>
+        <p id="texto-descripcion">{{ description }}</p>
+        <h2>Caracteristicas</h2>
     <ul>
         <li v-for="(notebooksType, indice) in notebooksTypes" :key="indice"> 
             <!-- EJE3 - 1)* Recorre el array de objetos de notebooksTypes por cada tipo, en este
@@ -21,16 +22,17 @@ app.component('informacion-notbook',{
 
         </li>       
     </ul>
+    </div>
     `,
-    props: {
-        notebooksTypes :{
-            type: Array,
-            required: true,
-        }
-    },
     data(){
         return{
             description: "Computadora HP orientado para gama media. Procesador Intel® Core™ i3 de 11.ª generación.  Windows 10 Home 64.  Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB . Pantalla de 14 pulgadas.", 
+        }
+    },
+    props: {
+        notebooksTypes:{
+            type: Array, 
+            required: true,
         }
     },
     methods:{
@@ -42,7 +44,7 @@ app.component('informacion-notbook',{
             this.notebooksCompradas.push(this.notebooksTypes[indice]) es el tipo de notbook que va comprando y lo voy agregando al array*/
         },
         seleccionarTipoComputadora(indice){ 
-         this.$emit('notbook-seleccionada', indice)
+            this.$emit('notebook-seleccionada', indice);
 
             /*EJE3 - 3)* Recibe el indice del tipo de notbook al cual hizo click en el boton (cada tipo tiene RAM y PRECIO, VER ARRIBA),
             this.notebookSeleccionada = indice; se lo asigna a la variable notebookSeleccionada, es decir, en ella se guardara el indice del objeto que tiene el tipo de
@@ -50,4 +52,4 @@ app.component('informacion-notbook',{
         },
         }
 
-})
+});
